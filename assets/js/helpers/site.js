@@ -17,18 +17,33 @@ const getCoordinates = (element) => {
 
 const selectors = {
     roadEl: '[el="road-path"]',
-    roadRef: '[el="road-ref"]'
+    roadRef: '[el="road-ref"]',
+    scrollTrigger: '[el="scroll-trigger"]'
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const roadline = select('#roadline')[0]
+window.addEventListener('DOMContentLoaded', () => {
+
+
+  
+    const roadTriggerEl = select(selectors.scrollTrigger, true)
     const roadReferenceEl = select(selectors.roadRef)
     const start = getCoordinates(roadReferenceEl[0])
     const middle = getCoordinates(roadReferenceEl[1])
     const end = getCoordinates(roadReferenceEl[2])
     const roadMap = getCoordinates(select('.roadmap', true))
-
     const pathElement = select(selectors.roadEl, true)
+
+    
+    const controller = new ScrollMagic.Controller({ globalSceneOptions: { duration: 1000 } })
+    
+
+    new ScrollMagic.Scene({
+            triggerElement: selectors.scrollTrigger
+        })
+        .addTo(controller)
+        .on('enter leave', () => {
+            roadTriggerEl.classList.toggle('animate')
+        })
    
 
     const startDx = start.left;
@@ -40,6 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const endDx = end.left;
     const endDy = roadMap.bottom - end.height / 2;
 
-     pathElement.setAttribute('d',
-            `M ${startDx} ${startDy} C ${startDx} ${startDy + 300} ${middleDx + 50} ${middleDy - 200} ${middleDx} ${middleDy} S 300 300 ${endDx} ${endDy}`)
+    pathElement.setAttribute('d',
+            `M ${startDx} ${startDy} C ${startDx} ${startDy + 300} ${middleDx + 50} ${middleDy - 200} ${middleDx} ${middleDy} S 500 700 ${endDx} ${endDy + 100}`)
 })

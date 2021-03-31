@@ -545,6 +545,10 @@ img {
     // &__svgcontainer {
        
     // }
+
+    &.animate .roadmap__roadpath {
+        animation: c-dashed-line-path 3s ease-in-out forwards;
+    }
     &__svg {
         position: absolute;
         // z-index: 2;
@@ -553,14 +557,29 @@ img {
         width: 100%;
         height: 100%;
     }
-    // &__svgel {
-    //     width: 100%;
-    //     height: 100%;
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    // }
+    &__roadpath {
+        fill: none;
+        stroke: rgb(195, 195, 195);
+        stroke-dasharray: 1940; /* this is the entire length of the line */
+        stroke-dashoffset: 1940; /* this is the entire length of the line */
+        stroke-width: 10;
+        
+    }
+    &__dash {
+        fill: none;
+        stroke: #fafafa; /* this must match the background color */
+        stroke-dasharray: 55 60; /* draws a 10px dash line with a 16px gap between */
+        stroke-width: 12; /* make the dashed line slightly bigger than the one it's covering */
+    }
+}
 
+@keyframes c-dashed-line-path {
+	from {
+		stroke-dashoffset: 1940;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
 }
 
 .roadmap-el {
