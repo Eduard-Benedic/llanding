@@ -109,13 +109,9 @@
         <section class="section">
             <div class="wrapper">
                 <div class="roadmap">
-                    <div class="roadmap__svgcontainer">
-                        <svg class="roadmap__svgel"  xmlns="http://www.w3.org/2000/svg">
-                            <!-- No dashes nor gaps -->
-                            <path el="road-path"  id="roadline" fill="transparent"  stroke="black" />
-                          </svg>
-                    </div>
-
+                        <svg class="roadmap__svg" xmlns="http://www.w3.org/2000/svg">
+                            <path el="road-path" stroke="#828282" stroke-dasharray="32 5" stroke-width="8" d="M 30 30 H 50 V 50 H 30 Z"  id="roadline" fill="transparent"  stroke="black" />
+                        </svg>
                         <div class="roadmap-el">
                             <div class="roadmap-el__grid">
                                 <div class="roadmap-el__left">
@@ -130,7 +126,7 @@
                             </div>
                         </div>
                         <div class="roadmap-el">
-                            <div class="roadmap-el__grid">
+                            <div class="roadmap-el__grid roadmap-el__grid--middle">
                                 <div class="roadmap-el__left">
                                     <img el="road-ref" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
                                 </div>
@@ -207,15 +203,6 @@
 
             </div>
         </footer>
-    </div>
-
-    <div>
-        <svg style="background-color: rgb(7, 118, 133);" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-        
-            <path d="M 10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
-
-
-        </svg>
     </div>
 
     <script src="assets/js/helpers/site.js"></script>
