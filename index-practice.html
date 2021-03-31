@@ -109,11 +109,15 @@
         <section class="section">
             <div class="wrapper">
                 <div class="roadmap">
+                    <div class="roadmap__svgcontainer">
+                        <svg class="roadmap__svgel"  xmlns="http://www.w3.org/2000/svg">
+                            <!-- No dashes nor gaps -->
+                            <path el="road-path"  id="roadline" fill="transparent"  stroke="black" />
+                          </svg>
+                    </div>
+
                         <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">1</span>
-                            </div>
-                            <div class="roadmap-el__grid roadmap-el__grid--switch">
+                            <div class="roadmap-el__grid">
                                 <div class="roadmap-el__left">
                                     <h3 class="roadmap-el__title">Browse available staff in your area</h3>
                                     <p class="roadmap-el__description">
@@ -126,10 +130,7 @@
                             </div>
                         </div>
                         <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">2</span>
-                            </div>
-                            <div class="roadmap-el__grid  roadmap-el__grid--middle">
+                            <div class="roadmap-el__grid">
                                 <div class="roadmap-el__left">
                                     <img el="road-ref" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
                                 </div>
@@ -142,10 +143,7 @@
                             </div>
                         </div>
                         <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">3</span>
-                            </div>
-                            <div class="roadmap-el__grid roadmap-el__grid--switch">
+                            <div class="roadmap-el__grid">
                                 <div class="roadmap-el__left">
                                     <h3 class="roadmap-el__title">Join the network and post your shifts</h3>
                                     <p class="roadmap-el__description">
@@ -158,8 +156,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                 </div>
        
                    
@@ -213,6 +209,14 @@
         </footer>
     </div>
 
+    <div>
+        <svg style="background-color: rgb(7, 118, 133);" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        
+            <path d="M 10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
+
+
+        </svg>
+    </div>
 
     <script src="assets/js/helpers/site.js"></script>
 </body>
