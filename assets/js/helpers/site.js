@@ -1,6 +1,3 @@
-
-
-
 var selectors = {
     roadPathEmployer: '[el="road-path-employer"]',
     roadPathJobseeker: '[el="road-path-jobseeker"]',
@@ -29,28 +26,29 @@ var getCoordinates = function (element)  {
 }
 
 var getRelativeY = function (parentCoord, elCoord)  {
-    return (parentCoord.height - elCoord.height / 2) - (parentCoord.bottom - elCoord.bottom)
+    return parentCoord.height - (elCoord.height / 2) - (parentCoord.bottom - elCoord.bottom) 
 }
 
 var getRoadPath = function (start, middle, end) {
     var roadMap = getCoordinates(select('.roadmap', true))
+    
     return {
         start: {
-            x: start.left,
+            x: start.left - roadMap.left,
             y: getRelativeY(roadMap, start)
         },
         middle: {
-            x: middle.left,
+            x: middle.right - roadMap.left - middle.width / 2,
             y: getRelativeY(roadMap, middle)
         },
         end: {
-            x: end.left,
+            x: end.left - roadMap.left,
             y: getRelativeY(roadMap, end)
         }
     }
 }
 
-var initiateRoadDrawing = function (roadContainerEl, pathSelector) {
+var drawRoad = function (roadContainerEl, pathSelector) {
     var start = getCoordinates(roadContainerEl[0])
     var middle = getCoordinates(roadContainerEl[1])
     var end = getCoordinates(roadContainerEl[2])
@@ -58,22 +56,28 @@ var initiateRoadDrawing = function (roadContainerEl, pathSelector) {
     var pathElement = select(pathSelector, true)
     var roadPath = getRoadPath(start, middle, end)
     pathElement.setAttribute('d',
-            `M ${roadPath.start.x} ${roadPath.start.y} C ${roadPath.start.x} ${roadPath.start.y + 140} ${roadPath.middle.x + 50} ${roadPath.middle.y - 200} ${roadPath.middle.x} ${roadPath.middle.y} S 500 700 ${roadPath.end.x} ${roadPath.end.y + 100}`)
+            `M ${roadPath.start.x} ${roadPath.start.y} C ${roadPath.start.x } ${roadPath.start.y + 200} ${roadPath.middle.x } ${roadPath.middle.y - 200} ${roadPath.middle.x} ${roadPath.middle.y} S 250 600 ${roadPath.end.x} ${roadPath.end.y }`)
 }
 
 
-
-window.addEventListener('DOMContentLoaded', function () {
-
+var initRoadDrawing = function () {
     var roadReferenceEmployer = select(selectors.roadRefEmployer)
     var roadReferenceJobseeker = select(selectors.roadRefJobseeker)
 
-    initiateRoadDrawing(roadReferenceEmployer, selectors.roadPathEmployer)
-    initiateRoadDrawing(roadReferenceJobseeker, selectors.roadPathJobseeker)
+    drawRoad(roadReferenceEmployer, selectors.roadPathEmployer)
+    drawRoad(roadReferenceJobseeker, selectors.roadPathJobseeker)
 
-    // Toggle Shift Type
+    window.addEventListener('resize', function () {
+        drawRoad(roadReferenceEmployer, selectors.roadPathEmployer)
+        drawRoad(roadReferenceJobseeker, selectors.roadPathJobseeker)
+    })
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    
+    initRoadDrawing()    
+    
     var shiftController = select(selectors.shiftController)
-
     shiftController.forEach(function (btn) {
         btn.addEventListener('click', function () {
             var shiftID = this.dataset.shift
