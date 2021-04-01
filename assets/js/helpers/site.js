@@ -1,9 +1,5 @@
 
-var select = function (selector, single) {
-    if (!single)
-        return document.querySelectorAll(selector)
-    return document.querySelector(selector)
-}
+
 
 var selectors = {
     roadPathEmployer: '[el="road-path-employer"]',
@@ -14,6 +10,20 @@ var selectors = {
     shiftController: '[el="shiftControllerBtn"]'
 }
 
+// General Utility Functions
+var toggleClass = function (el, className) {
+    if (el.classList.contains(className)) return el.classList.remove(className)
+    return el.classList.add(className)    
+}
+
+var select = function (selector, single) {
+    if (!single)
+        return document.querySelectorAll(selector)
+    return document.querySelector(selector)
+}
+
+
+// Utility Functions
 var getCoordinates = function (element)  {
     return element.getBoundingClientRect()
 }
@@ -40,41 +50,36 @@ var getRoadPath = function (start, middle, end) {
     }
 }
 
-var initiateStepRoad = function (roadReference, roadPath) {
-    var start = getCoordinates(roadReference[0])
-    var middle = getCoordinates(roadReference[1])
-    var end = getCoordinates(roadReference[2])
+var initiateRoadDrawing = function (roadContainerEl, pathSelector) {
+    var start = getCoordinates(roadContainerEl[0])
+    var middle = getCoordinates(roadContainerEl[1])
+    var end = getCoordinates(roadContainerEl[2])
     
-    var pathElement = select(roadPath, true)
-    var roadPathCoordinates = getRoadPath(start, middle, end)
+    var pathElement = select(pathSelector, true)
+    var roadPath = getRoadPath(start, middle, end)
     pathElement.setAttribute('d',
-            `M ${roadPathCoordinates.start.x} ${roadPathCoordinates.start.y} C ${roadPathCoordinates.start.x} ${roadPathCoordinates.start.y + 140} ${roadPathCoordinates.middle.x + 50} ${roadPathCoordinates.middle.y - 200} ${roadPathCoordinates.middle.x} ${roadPathCoordinates.middle.y} S 500 700 ${roadPathCoordinates.end.x} ${roadPathCoordinates.end.y + 100}`)
+            `M ${roadPath.start.x} ${roadPath.start.y} C ${roadPath.start.x} ${roadPath.start.y + 140} ${roadPath.middle.x + 50} ${roadPath.middle.y - 200} ${roadPath.middle.x} ${roadPath.middle.y} S 500 700 ${roadPath.end.x} ${roadPath.end.y + 100}`)
 }
 
-var toggleClass = function (el, className) {
-    if (el.classList.contains(className)) return el.classList.remove(className)
-    return el.classList.add(className)    
-}
+
 
 window.addEventListener('DOMContentLoaded', function () {
 
     var roadReferenceEmployer = select(selectors.roadRefEmployer)
     var roadReferenceJobseeker = select(selectors.roadRefJobseeker)
 
-    initiateStepRoad(roadReferenceEmployer, selectors.roadPathEmployer)
-    initiateStepRoad(roadReferenceJobseeker, selectors.roadPathJobseeker)
+    initiateRoadDrawing(roadReferenceEmployer, selectors.roadPathEmployer)
+    initiateRoadDrawing(roadReferenceJobseeker, selectors.roadPathJobseeker)
 
-    /*=================================================
-        Toggle Shift Type
-    ====================================================*/
-    var controllerBtn = select(selectors.shiftController)
+    // Toggle Shift Type
+    var shiftController = select(selectors.shiftController)
 
-    controllerBtn.forEach(function (btn) {
+    shiftController.forEach(function (btn) {
         btn.addEventListener('click', function () {
             var shiftID = this.dataset.shift
             const shiftToggle = select('[el="shift-toggle"]')
 
-            controllerBtn.forEach(function (btn) {
+            shiftController.forEach(function (btn) {
                 toggleClass(btn, 'trainway__btn--active')
             })
 
