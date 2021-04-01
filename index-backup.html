@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/stylesheets/css/site.css">
-    
 </head>
 <body>
     <div id="site-container">
@@ -109,17 +108,11 @@
         </section>
         <section class="section">
             <div class="wrapper">
-                <div el="scroll-trigger" class="roadmap">
-                        <svg  class="roadmap__svg" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <path   id="roadline"
-                                        el="road-path" 
-                                        fill="transparent" />
-                            </defs>
-                            <use class="roadmap__roadpath" href="#roadline" />
-                            <use class="roadmap__dash" href="#roadline" />
-                        </svg>
+                <div class="roadmap">
                         <div class="roadmap-el">
+                            <div class="roadmap-el__step">
+                                <span class="roadmap-el__circle">1</span>
+                            </div>
                             <div class="roadmap-el__grid roadmap-el__grid--switch">
                                 <div class="roadmap-el__left">
                                     <h3 class="roadmap-el__title">Browse available staff in your area</h3>
@@ -133,7 +126,10 @@
                             </div>
                         </div>
                         <div class="roadmap-el">
-                            <div class="roadmap-el__grid roadmap-el__grid--middle">
+                            <div class="roadmap-el__step">
+                                <span class="roadmap-el__circle">2</span>
+                            </div>
+                            <div class="roadmap-el__grid  roadmap-el__grid--middle">
                                 <div class="roadmap-el__left">
                                     <img el="road-ref" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
                                 </div>
@@ -146,7 +142,10 @@
                             </div>
                         </div>
                         <div class="roadmap-el">
-                            <div class="roadmap-el__grid  roadmap-el__grid--switch">
+                            <div class="roadmap-el__step">
+                                <span class="roadmap-el__circle">3</span>
+                            </div>
+                            <div class="roadmap-el__grid roadmap-el__grid--switch">
                                 <div class="roadmap-el__left">
                                     <h3 class="roadmap-el__title">Join the network and post your shifts</h3>
                                     <p class="roadmap-el__description">
@@ -159,6 +158,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                 </div>
        
                    
@@ -212,7 +213,7 @@
         </footer>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+
     <script src="assets/js/helpers/site.js"></script>
 </body>
 </html>

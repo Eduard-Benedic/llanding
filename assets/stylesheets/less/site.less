@@ -93,6 +93,7 @@ body {
 h1,h2,h3,h4 {
     .biotif;
     font-weight: 700;
+    letter-spacing: -2px;
 }
 
 a {
@@ -158,6 +159,12 @@ img {
 .grid-33 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    &--pb {
+        padding-bottom: 90px;
+            @media @mq-950 {
+                padding-bottom: 45px;
+            }
+    }
     @media @mq-950 {
          grid-template-columns: 1fr; 
     }
@@ -266,7 +273,7 @@ img {
 }
 
 .shadow-lg {
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .h {
@@ -462,11 +469,11 @@ img {
         }
     }
     &__btn {
-        .grotesk;
+        .biotif;
         letter-spacing: 1px;
         padding: 15px 25px;
         border-radius: 30px;
-        font-weight: bold;
+        font-weight: 700;
         color: white;
         background: @second;
         .shadow-lg;
@@ -480,9 +487,14 @@ img {
     }
 }
 
+#employer-shift {
+    display: none;
+}
+
+
 .shifts-card  {
     &__container {
-        .shadow-lg;
+        box-shadow: -2px 3px 10px 5px rgba(0, 0, 0,0.1);
         padding: 35px 25px;
         border-radius: 10px;
     }
@@ -520,7 +532,7 @@ img {
     }
     &__railway {
         position: relative;
-        background-color:  rgb(235, 233, 233);
+        background-color:  #f1f1f1;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
     }
@@ -528,13 +540,16 @@ img {
         .biotif;
         font-weight: 500;
         padding: 15px 25px;
+        cursor: pointer;
+        outline: none;
         color: @main;
-        background-color: rgb(235, 233, 233);
+        background-color: #f1f1f1;
         border: none;
         &--active {
             border-radius: 50px;
             color: @second;
-            box-shadow: -1px 2px 2px 4px rgba(3, 156, 90, 0.322);
+            box-shadow: -1px 1px 2px 2px rgba(3, 156, 90, 0.7);
+            font-weight: bold;
         }
     }
 }
@@ -558,6 +573,7 @@ img {
         height: 100%;
     }
     &__roadpath {
+        // animation: c-dashed-line-path 3s ease-in-out forwards;
         fill: none;
         stroke: rgb(195, 195, 195);
         stroke-dasharray: 1940; /* this is the entire length of the line */
@@ -698,6 +714,7 @@ img {
         }
     }
     &__input {
+        .grotesk;
         display: block;
         margin: 0 auto;
         width: 100%;
@@ -737,7 +754,7 @@ img {
         margin-right: 10px;
     }
     &__container {
-        font-family: 'Raleway', sans-serif;
+        .biotif;
         display: inline-block;
         position: relative;
         padding-left: 20px;
@@ -751,10 +768,10 @@ img {
         opacity: 0;
         height: 0;
         width: 0;
+
         &:checked ~ .radio__checkmark--second::after {
             opacity: 1;
             background-color: @second;
-           
         }
     }
     &__checkmark {

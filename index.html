@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/stylesheets/css/site.css">
+    
 </head>
 <body>
     <div id="site-container">
@@ -44,7 +45,7 @@
                                 The hospitality industry has changed. So should your approach to employment.
                             </h1>
                             <p class="hero__p">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque omnis, illo laboriosam expedita, nobis nihil nemo, vero consequuntur est possimus error maxime ipsa distinctio ullam. Magnam placeat rem amet facere nam atque a
+                                SHIFT PRO provides an interactive platform where employers and jobseekers can connect instantly. We provide flexible staffing solutions to suit the businesses needs, as well as the workers schedule.
                             </p>
                             <div class="hero__btnpair">
                                 <a href="/index.html" class="hero__btn">Find out more</a>
@@ -53,8 +54,6 @@
                         </div>
                         <img class="hero__img" src="assets/images/sp-hero.jpg" alt="">
                     </div>
-                  
-                  
                 </div>
             </div>
         </section>
@@ -64,107 +63,190 @@
                 <div class="trainway trainway--mb">
                     <div class="trainway__container">
                         <div class="trainway__railway">
-                            <button type="button" class="trainway__btn trainway__btn--active">Find a shift</button>
-                            <button type="button" class="trainway__btn">Fill a shift</button>
+                            <button el="shiftControllerBtn" data-shift="#jobseeker-shift" type="button" class="trainway__btn trainway__btn--active">Find a shift</button>
+                            <button el="shiftControllerBtn" data-shift="#employer-shift" type="button" class="trainway__btn">Fill a shift</button>
                         </div>
-                        <!-- <svg class="trainway__rail"></svg> -->
-                      
-
                     </div>
                 </div>
-                <div class="grid-33 grid-33--gap50">
-                    <div class="shifts-card">
-                        <div class="shifts-card__container">
-                            <h3 class="shifts-card__title shifts-card__title--check">
-                                Flexible staffing
-                            </h3>
-                            <p class="shifts-card__description">
-                                Lorem ipsumShift Pro really lorem can assist Shift Pro can assist you to get your staffing levels right, whether required weel ina dnavce, or at extremely .
-                            </p>
+                <div class="section" el="shift-toggle" id="jobseeker-shift">
+                        <div class="grid-33 grid-33--gap50 grid-33--pb">
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--check">
+                                        Flexible patterns
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        We understand that not everyone can work 9-5 Monday to Friday. Update your availability and find shifts that suit you.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--coins">
+                                        Transparent wages
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        Lower fees to the employer means they can pay a better wage. Every hour worked accrues holiday pay and pension contribution too.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--users">
+                                        Join our network
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        Gain access to our network of employers, as well as well as discounts offered by these businesses.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="shifts-card">
-                        <div class="shifts-card__container">
-                            <h3 class="shifts-card__title shifts-card__title--coins">
-                                Unbeatable fees
-                            </h3>
-                            <p class="shifts-card__description">
-                                hift Pro really lorem can assist  Shift Pro really lorem can assist you to get your staffing levels right, whether required weel ina dnavce, or at extremely.
-                            </p>
+                        <h2 class="h h--4xl h--center">Easy steps to find a shift</h2>
+                        <div el="scroll-trigger-employer" class="roadmap">
+                                <svg  class="roadmap__svg" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path   id="roadline"
+                                                el="road-path-employer" 
+                                                fill="transparent" />
+                                    </defs>
+                                    <use class="roadmap__roadpath" href="#roadline" />
+                                    <use class="roadmap__dash" href="#roadline" />
+                                </svg>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid roadmap-el__grid--switch">
+                                        <div class="roadmap-el__left">
+                                            <h3 class="roadmap-el__title">
+                                                Create your jobseeker profile
+                                            </h3>
+                                            <p class="roadmap-el__description">
+                                                Browse available shifts on your newsfeed and apply directly for shifts that interest you. You might also receive a direct offer from employers!
+                                            </p>
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <img el="road-ref-employer" src="assets/images/sp-hero.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid roadmap-el__grid--middle">
+                                        <div class="roadmap-el__left">
+                                            <img el="road-ref-employer" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <h3 class="roadmap-el__title">Verify the shift and rate your employer</h3>
+                                            <p class="roadmap-el__description">
+                                                Once shift is completed and timesheet is verified by both parties, there is the opportunity to rate your workplace, and be rated by your workplace, so that future employers know how you perform.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid  roadmap-el__grid--switch">
+                                        <div class="roadmap-el__left">
+                                            <h3 class="roadmap-el__title">We will take it from there...</h3>
+                                            <p class="roadmap-el__description">
+                                                Payment is taken from the Employer within days of the approved timesheet. Your wages will have holiday pay and pension accrued.
+                                            </p>
+                                           
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <img el="road-ref-employer" src="assets/images/sp-time-2.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
-                    </div>
-                    <div class="shifts-card">
-                        <div class="shifts-card__container">
-                            <h3 class="shifts-card__title shifts-card__title--users">
-                                Unbeatable fees
-                            </h3>
-                            <p class="shifts-card__description">
-                                hift Pro really lorem can assist fShift Pro really lorem can assist you to get your staffing levels right, whether required weel ina dnavce, or at extremely.
-                            </p>
+                </div>     
+                <div el="shift-toggle" id="employer-shift" class="section">
+                        <div class="grid-33 grid-33--gap50 grid-33--pb">
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--check">
+                                        Flexible staffing
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        Shift Pro can assist you to get your staffing levels right, whether required well in advance, or at extremely short notice.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--coins">
+                                        Unbeatable fees
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        Shift Pro works on a subscription basis + 3% fee per transaction. In comparison, traditional agency fees are 15-20% per placement!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shifts-card">
+                                <div class="shifts-card__container">
+                                    <h3 class="shifts-card__title shifts-card__title--users">
+                                        Rated workers
+                                    </h3>
+                                    <p class="shifts-card__description">
+                                        Our workers are rated after everyshift, giving you an insight on their performance and reliability. Be confident in the workers you hire.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <h2 class="h h--4xl h--center">Easy steps to fill a shift</h2>
+                        <div el="scroll-trigger" class="roadmap">
+                                <svg  class="roadmap__svg" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path   id="roadline"
+                                                el="road-path-jobseeker" 
+                                                fill="transparent" />
+                                    </defs>
+                                    <use class="roadmap__roadpath" href="#roadline" />
+                                    <use class="roadmap__dash" href="#roadline" />
+                                </svg>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid roadmap-el__grid--switch">
+                                        <div class="roadmap-el__left">
+                                            <h3 class="roadmap-el__title">
+                                                Join the network and post your shifts
+                                            </h3>
+                                            <p class="roadmap-el__description">
+                                                Once your profile is created, you can create job postings for workers to apply. View applicants on the app, and accept/reject with a single swipe.
+                                            </p>
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <img el="road-ref-jobseeker" src="assets/images/sp-hero.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid roadmap-el__grid--middle">
+                                        <div class="roadmap-el__left">
+                                            <img el="road-ref-jobseeker" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <h3 class="roadmap-el__title">Browse available staff in your area</h3>
+                                            <p class="roadmap-el__description">
+                                                If there are no suitable applicants, you can check available staff by using our quick search, and directly offering them the role. You will be also able to view their performance and reliability score.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="roadmap-el">
+                                    <div class="roadmap-el__grid  roadmap-el__grid--switch">
+                                        <div class="roadmap-el__left">
+                                            <h3 class="roadmap-el__title">We will take it from there...</h3>
+                                            <p class="roadmap-el__description">
+                                                After a shift is confirmed and completed, you have 48 hours to approve or amend to approve the timesheet. Once approved, funds are taken by DD, and paid to the worker on our next payroll run. An invoice is emailed to you.
+                                            </p>
+                                        
+                                        </div>
+                                        <div class="roadmap-el__right">
+                                            <img el="road-ref-jobseeker" src="assets/images/sp-time-2.jpg" alt="" class="roadmap-el__img">
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                 </div>
             </div>
         </section>
-        <section class="section">
-            <div class="wrapper">
-                <div class="roadmap">
-                        <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">1</span>
-                            </div>
-                            <div class="roadmap-el__grid roadmap-el__grid--switch">
-                                <div class="roadmap-el__left">
-                                    <h3 class="roadmap-el__title">Browse available staff in your area</h3>
-                                    <p class="roadmap-el__description">
-                                        If there are no suitable applicants, you can check available staff by u sing our quick search and riectly offering them the role. ou willb e also be alb to veiw their peformance and reliabity score
-                                    </p>
-                                </div>
-                                <div class="roadmap-el__right">
-                                    <img el="road-ref" src="assets/images/sp-hero.jpg" alt="" class="roadmap-el__img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">2</span>
-                            </div>
-                            <div class="roadmap-el__grid  roadmap-el__grid--middle">
-                                <div class="roadmap-el__left">
-                                    <img el="road-ref" src="assets/images/sp-salary.jpg" alt="" class="roadmap-el__img">
-                                </div>
-                                <div class="roadmap-el__right">
-                                    <h3 class="roadmap-el__title">We will take it from here</h3>
-                                    <p class="roadmap-el__description">
-                                        If there are no suitable applicants, you can check available staff by u sing our quick search and riectly offering them the role. ou willb e also be alb to veiw their peformance and reliabity score
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="roadmap-el">
-                            <div class="roadmap-el__step">
-                                <span class="roadmap-el__circle">3</span>
-                            </div>
-                            <div class="roadmap-el__grid roadmap-el__grid--switch">
-                                <div class="roadmap-el__left">
-                                    <h3 class="roadmap-el__title">Join the network and post your shifts</h3>
-                                    <p class="roadmap-el__description">
-                                        If there are no suitable applicants, you can check available staff by u sing our quick search and riectly offering them the role. ou willb e also be alb to veiw their peformance and reliabity score
-                                    </p>
-                                   
-                                </div>
-                                <div class="roadmap-el__right">
-                                    <img el="road-ref" src="assets/images/sp-time-2.jpg" alt="" class="roadmap-el__img">
-                                </div>
-                            </div>
-                        </div>
 
-
-                </div>
-       
-                   
-            </div>
-        </section>
         <section class="section section--gradient">
             <div class="wrapper">
                 <h2 class="h h--center h--4xl h--white">Sign up today !</h2>
@@ -212,8 +294,7 @@
             </div>
         </footer>
     </div>
-
-
+    <script src="assets/js/plugins/scroll-magic.min.js"></script>
     <script src="assets/js/helpers/site.js"></script>
 </body>
 </html>
