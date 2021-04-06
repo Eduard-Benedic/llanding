@@ -1,3 +1,64 @@
+
+
+$.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
+    position: {
+         viewport: false,
+         my: 'top right',
+         at: 'bottom right',
+         effect: false,
+         adjust: {
+              x: -10,
+              method: 'shift none'
+         }
+    },
+    show: {
+         ready: true,
+         event: false
+    },
+    style: {
+         classes: 'qtip-bootstrap qtip-shadow qtip-rounded',
+         tip: {
+              mimic: 'center',
+              offset: 10
+         }
+    },
+    api: {
+         onHide: function () {
+              element.qtip("destroy");
+         }
+    }
+});
+$.fn.qtip.zindex = 150;
+
+
+
+/* VALIDATION DEFAULT CONFIG */
+jQuery.validator.setDefaults({
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+         var elem = $(element);
+         var id = elem.attr('id');
+         if (!error.is(':empty')) {
+              showError(element, error);
+         } else {
+              elem.qtip("hide");
+         }
+    },
+    success: $.noop
+});
+
+showError = function (element, error) {
+    var settings = null;
+    if (element.filter(':not(.valid)')) {
+         element.qtip({
+              id: element.attr('id'),
+              overwrite: false,
+              content: error,
+              hide: false
+         }).qtip('option', 'content.text', error).qtip("show");
+    }
+};
+
 var selectors = {
     roadPathEmployer: '[el="road-path-employer"]',
     roadPathJobseeker: '[el="road-path-jobseeker"]',
@@ -73,10 +134,54 @@ var initRoadDrawing = function () {
     })
 }
 
-window.addEventListener('DOMContentLoaded', function () {
+var signup = function () {
+    var URL = 'assets/components/email.connector.php'
+    var formSelector = '#signupForm'
+
+
+    var request = function (form) {
+        form.ajaxSubmit({
+            url: URL,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                name: 'eduard'
+            }
+        })
+    }
+
+    var init = function () {
+        $(formSelector).validate({
+            rules: {
+                signupEmail: {
+                    required: true,
+                    email: true
+                }
+            },
+            submitHandler: function (form) {
+                request(form)
+            }
+        })
+
+        
+    }
+
+    return {
+        init: init
+    }
+
+}
+
+$(document).ready(function () {
+
+    signup.init()
     
-    initRoadDrawing()    
     
+
+    initRoadDrawing()
+    /*=======================================
+        Toggle the shift type view
+    ==========================================*/
     var shiftController = select(selectors.shiftController)
     shiftController.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -94,8 +199,6 @@ window.addEventListener('DOMContentLoaded', function () {
             shiftSection.style.display = 'block'
         })
     })
-
-
     /*=============================================================
         Animate the Road on Scroll
     ===============================================================*/

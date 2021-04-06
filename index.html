@@ -248,31 +248,31 @@
 
         <section class="section section--gradient">
             <div class="wrapper">
-                <h2 class="h h--center h--4xl h--white">Sign up today !</h2>
-                
-                <div id="signup" class="home-signup">
-                    <div class="home-signup__container">
-                        <img class="home-signup__bgimg home-signup__bgimg--right" src="assets/images/home-signup-right.jpg" alt="Right side">
-                        <img class="home-signup__bgimg home-signup__bgimg--left" src="assets/images/home-signup-left.jpg" alt="Left side">
-                        <div class="home-signup__content">
-                            <div class="home-signup__radio-pair">
-                                <div class="radio radio--mr">
-                                    <label for="employer" class="radio__container">
-                                        <input class="radio__input radio__input--second" type="radio" id="employer" name="jobsearch">I am an employer
-                                        <span class="radio__checkmark radio__checkmark--second"></span>
-                                    </label>
+                    <h2 class="h h--center h--4xl h--white">Sign up today !</h2>
+                    <form method="POST" action="/assets/components/email.connector.php" id="signupForm" name="signup" class="home-signup">
+                        <div class="home-signup__container">
+                            <img class="home-signup__bgimg home-signup__bgimg--right" src="assets/images/home-signup-right.jpg" alt="Right side">
+                            <img class="home-signup__bgimg home-signup__bgimg--left" src="assets/images/home-signup-left.jpg" alt="Left side">
+                            <div class="home-signup__content">
+                                <div class="home-signup__radio-pair">
+                                    <div class="radio radio--mr">
+                                        <label for="employer" class="radio__container">
+                                            <input class="radio__input radio__input--second" type="radio" id="employer" name="jobsearch">I am an employer
+                                            <span class="radio__checkmark radio__checkmark--second"></span>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label for="jobseeker" class="radio__container">
+                                            <input class="radio__input radio__input--second"  type="radio" id="jobseeker" name="jobsearch">I am a jobseeker
+                                            <span class="radio__checkmark radio__checkmark--second">&nbsp;</span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="radio">
-                                    <label for="jobseeker" class="radio__container">
-                                        <input class="radio__input radio__input--second"  type="radio" id="jobseeker" name="jobsearch">I am a jobseeker
-                                        <span class="radio__checkmark radio__checkmark--second">&nbsp;</span>
-                                    </label>
-                                </div>
+                                <input name="signupEmail" id="signupEmail" type="text" class="home-signup__input" placeholder="Your email address">
+                                <button type="submit" class="btn btn--third btn--full-mobile btn--shadow">Sign up</button>
                             </div>
-                            <input type="text" class="home-signup__input" placeholder="Your email address">
-                            <button type="submit" class="btn btn--third btn--full-mobile btn--shadow">Sign up</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
@@ -293,6 +293,9 @@
             </div>
         </footer>
     </div>
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/plugins/jquery.validate.js"></script>
+    <script src="assets/js/plugins/jquery.qtip.js"></script>
     <script src="assets/js/plugins/scroll-magic.min.js"></script>
     <script src="assets/js/helpers/site.js"></script>
 </body>
